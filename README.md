@@ -1,5 +1,3 @@
-
-
 # How to init the lab
 1. rewrite the variable tag: Owner
 2. Run script
