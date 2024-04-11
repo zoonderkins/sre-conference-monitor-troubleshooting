@@ -96,7 +96,7 @@ filter:
 cloudWatch:
   enabled: false
   match: "*"
-  region: "us-east-1"
+  region: "ap-northeast-1"
   logGroupName: "/aws/eks/fluentbit-cloudwatch/logs"
   logStreamName:
   logStreamPrefix: "fluentbit-"
@@ -113,7 +113,7 @@ cloudWatch:
 cloudWatchLogs:
   enabled: true
   match: "*"
-  region: "us-east-1"
+  region: "ap-northeast-1"
   logGroupName: "/aws/eks/fluentbit-cloudwatch/logs"
   logGroupTemplate: # /aws/eks/fluentbit-cloudwatch/workload/$kubernetes['namespace_name']
   logStreamName:

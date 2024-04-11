@@ -35,3 +35,7 @@ terraform.rc
 *.lock.hcl
 .terraform/*
 .terraform
+*/.terraform
+*/*.lock.hcl
+*/*.tfstate
+*/*.tfstate.backup

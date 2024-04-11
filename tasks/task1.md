@@ -10,25 +10,6 @@
 # Output Config
 ```
 [OUTPUT]
-    Name                  cloudwatch
-    Match                 *
-    region                ap-northeast-1
-    log_group_name        /aws/containerinsights/${local.project_name}/application
-    log_stream_prefix     fluentbit-
-    log_retention_days    ${var.cloudwatch_log_retention_days}
-    auto_create_group     true
-
-[OUTPUT]
-    Name                  cloudwatch_logs
-    Match                 *
-    region                ap-northeast-1
-    log_group_name        /aws/eks/fluentbit-cloudwatch/logs
-    log_group_template    /aws/eks/fluentbit-cloudwatch/workload/$kubernetes['namespace_name']
-    log_stream_prefix     fluentbit-
-    log_stream_template   $kubernetes['pod_name'].$kubernetes['container_name']
-    auto_create_group     true
-
-[OUTPUT]
     Name            es
     Match           kube.*
     Host            elasticsearch-master.kube-system.svc.cluster.local

@@ -1,3 +1,16 @@
+# How to init the lab
+```
+AWS_PROFILE=backyard ./init.sh
+```
+
+# End the lab
+```
+AWS_PROFILE=backyard ./destroy.sh
+```
+
+
+
+
 # sre-conference-monitor-troubleshooting
 ```
 aws eks update-kubeconfig --name  monitor-troubleshooting --profile backyard
@@ -22,12 +35,3 @@ helm install log-generator .
 
 
 
-# How to init the lab
-```
-AWS_PROFILE=backyard ./init.sh
-```
-
-# End the lab
-```
-AWS_PROFILE=backyard ./destroy.sh
-```
