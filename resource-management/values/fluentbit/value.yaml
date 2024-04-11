@@ -137,7 +137,7 @@ cloudWatchLogs:
 firehose:
   enabled: false
   match: "*"
-  region: "us-east-1"
+  region: "ap-northeast-1"
   deliveryStream: "my-stream"
   dataKeys:
   roleArn:
@@ -149,7 +149,7 @@ firehose:
 kinesis:
   enabled: false
   match: "*"
-  region: "us-east-1"
+  region: "ap-northeast-1"
   stream: "my-kinesis-stream-name"
   partitionKey: "container_id"
   appendNewline:
@@ -171,7 +171,7 @@ kinesis:
 kinesis_streams:
   enabled: false
   match: "*"
-  region: "us-east-1"
+  region: "ap-northeast-1"
   stream: "my-kinesis-stream-name"
   role_arn:
   endpoint:
@@ -186,7 +186,7 @@ elasticsearch:
   enabled: false
   match: "*"
   host:
-  awsRegion: "us-east-1"
+  awsRegion: "ap-northeast-1"
   awsAuth: "On"
   tls: "On"
   port: "443"
@@ -200,7 +200,7 @@ s3:
   enabled: false
   match: "*"
   bucket:
-  region: "us-east-1"
+  region: "ap-northeast-1"
   jsonDateKey: "date"
   jsonDateFormat: "iso8601"
   totalFileSize: "100M"
@@ -236,7 +236,7 @@ opensearch:
   path: ""
   bufferSize: "5m"
   pipeline:
-  awsRegion: "us-east-1"
+  awsRegion: "ap-northeast-1"
   awsAuth: "On"
   awsStsEndpoint:
   awsRoleArn:
@@ -335,9 +335,9 @@ volumes:
   - name: varlibdockercontainers
     hostPath:
       path: /var/lib/docker/containers
-  - name: elasticsearch-master-certs
+  - name: elasticsearch-password
     secret:
-      secretName: elasticsearch-master-certs
+      secretName: elasticsearch-password
 
 volumeMounts:
   - name: varlog
@@ -345,10 +345,9 @@ volumeMounts:
   - name: varlibdockercontainers
     mountPath: /var/lib/docker/containers
     readOnly: true
-  - name: elasticsearch-master-certs
+  - name: elasticsearch-password
     readOnly: true
     mountPath: /fluentd/elastic/
-
 
 # For livenessProbe to work - service.extraService must also enable Health_Check On
 livenessProbe:

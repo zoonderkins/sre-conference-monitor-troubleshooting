@@ -3,7 +3,7 @@
 [FILTER]
     Name grep
     Match kube.*
-    Regex log 404
+    Regex message 404
 ```
 
 

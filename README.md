@@ -8,7 +8,15 @@ AWS_PROFILE=backyard ./init.sh
 AWS_PROFILE=backyard ./destroy.sh
 ```
 
-
+# elasticSearch rebuild error
+```
+ Error: context deadline exceeded
+│ 
+│   with helm_release.elasticsearch
+```
+```
+./resource-management/remove.sh
+```
 
 
 # sre-conference-monitor-troubleshooting
