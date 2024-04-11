@@ -1,11 +1,13 @@
 # How to init the lab
+1. rewrite the variable tag: Owner
+2. Run script
 ```
-AWS_PROFILE=backyard ./init.sh
+AWS_PROFILE=<profile> ./init.sh
 ```
 
 # End the lab
 ```
-AWS_PROFILE=backyard ./destroy.sh
+AWS_PROFILE=<profile> ./destroy.sh
 ```
 
 # elasticSearch rebuild error
@@ -18,28 +20,9 @@ AWS_PROFILE=backyard ./destroy.sh
 ./resource-management/remove.sh
 ```
 
-
-# sre-conference-monitor-troubleshooting
+# set config
 ```
-aws eks update-kubeconfig --name  monitor-troubleshooting --profile backyard
+aws eks update-kubeconfig --name  monitor-troubleshooting --profile <profile>
 ```
-
-```
-helm repo add fluent https://fluent.github.io/helm-charts
-helm pull fluent/fluentd
-helm install fluentd .
-
-# https://www.elastic.co/guide/en/cloud-on-k8s/master/k8s-install-helm.html
-helm install -n elastic-system --create-namespace eck-operator .
-```
-
-```
-helm install eck-elasticsearch .
-```
-cd helm-template/log-generator
-helm install log-generator .
-
-```
-
 
 
