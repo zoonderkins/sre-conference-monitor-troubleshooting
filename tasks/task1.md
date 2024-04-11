@@ -1,4 +1,8 @@
-# Filter Config
+# 目標
+1. fluent bit 加上 filter 及 output 設定
+2. checkpoint - 部署後 config 出現對應的值
+
+## Filter Config
 ```
 [FILTER]
     Name grep
@@ -7,7 +11,7 @@
 ```
 
 
-# Output Config
+## Output Config
 ```
 [OUTPUT]
     Name            es
@@ -28,7 +32,7 @@
 ```
 
 
-check endpoint
+## check endpoint
 ```
 k -n kube-system describe configmap aws-cloudwatch-logs-aws-for-fluent-bit
 ```
