@@ -1,11 +1,15 @@
+
+
 # How to init the lab
+1. rewrite the variable tag: Owner
+2. Run script
 ```
-AWS_PROFILE=backyard ./init.sh
+AWS_PROFILE=<profile> ./init.sh
 ```
 
 # End the lab
 ```
-AWS_PROFILE=backyard ./destroy.sh
+AWS_PROFILE=<profile> ./destroy.sh
 ```
 
 # elasticSearch rebuild error
@@ -18,10 +22,9 @@ AWS_PROFILE=backyard ./destroy.sh
 ./resource-management/remove.sh
 ```
 
-
-# sre-conference-monitor-troubleshooting
+# set config
 ```
-aws eks update-kubeconfig --name  monitor-troubleshooting --profile backyard
+aws eks update-kubeconfig --name  monitor-troubleshooting --profile <profile>
 ```
 
 
