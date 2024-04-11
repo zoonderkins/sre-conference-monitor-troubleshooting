@@ -335,9 +335,9 @@ volumes:
   - name: varlibdockercontainers
     hostPath:
       path: /var/lib/docker/containers
-  - name: elasticsearch-password
+  - name: elasticsearch-master-certs
     secret:
-      secretName: elasticsearch-password
+      secretName: elasticsearch-master-certs
 
 volumeMounts:
   - name: varlog
@@ -345,7 +345,7 @@ volumeMounts:
   - name: varlibdockercontainers
     mountPath: /var/lib/docker/containers
     readOnly: true
-  - name: elasticsearch-password
+  - name: elasticsearch-master-certs
     readOnly: true
     mountPath: /fluentd/elastic/
 
