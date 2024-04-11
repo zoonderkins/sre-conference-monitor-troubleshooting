@@ -33,7 +33,7 @@ provider "kubernetes" {
   cluster_ca_certificate = base64decode(module.eks.cluster_certificate_authority_data)
   exec {
     api_version = "client.authentication.k8s.io/v1beta1"
-    args        = ["--profile", "backyard","eks", "get-token", "--cluster-name", local.project_name]
+    args        = ["eks", "get-token", "--cluster-name", local.project_name]
     command     = "aws"
   }
 }
