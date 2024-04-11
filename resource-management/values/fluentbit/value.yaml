@@ -19,7 +19,7 @@ podSecurityContext: {}
 #   type: RuntimeDefault
 containerSecurityContext: {}
 # allowPrivilegeEscalation: false
-# capabilities: 
+# capabilities:
 #   drop:
 #   - ALL
 
@@ -38,7 +38,7 @@ service:
     Health_Check On 
     HC_Errors_Count 5 
     HC_Retry_Failure_Count 5 
-    HC_Period 5 
+    HC_Period 5
 
   parsersFiles:
     - /fluent-bit/parsers/parsers.conf
@@ -96,7 +96,7 @@ filter:
 cloudWatch:
   enabled: false
   match: "*"
-  region: "ap-northeast-1"
+  region: "us-east-1"
   logGroupName: "/aws/eks/fluentbit-cloudwatch/logs"
   logStreamName:
   logStreamPrefix: "fluentbit-"
@@ -113,7 +113,7 @@ cloudWatch:
 cloudWatchLogs:
   enabled: true
   match: "*"
-  region: "ap-northeast-1"
+  region: "us-east-1"
   logGroupName: "/aws/eks/fluentbit-cloudwatch/logs"
   logGroupTemplate: # /aws/eks/fluentbit-cloudwatch/workload/$kubernetes['namespace_name']
   logStreamName:
@@ -137,7 +137,7 @@ cloudWatchLogs:
 firehose:
   enabled: false
   match: "*"
-  region: "ap-northeast-1"
+  region: "us-east-1"
   deliveryStream: "my-stream"
   dataKeys:
   roleArn:
@@ -149,7 +149,7 @@ firehose:
 kinesis:
   enabled: false
   match: "*"
-  region: "ap-northeast-1"
+  region: "us-east-1"
   stream: "my-kinesis-stream-name"
   partitionKey: "container_id"
   appendNewline:
@@ -171,7 +171,7 @@ kinesis:
 kinesis_streams:
   enabled: false
   match: "*"
-  region: "ap-northeast-1"
+  region: "us-east-1"
   stream: "my-kinesis-stream-name"
   role_arn:
   endpoint:
@@ -180,13 +180,13 @@ kinesis_streams:
   time_key_format:
   external_id:
   auto_retry_requests:
-  log_key: 
+  log_key:
 
 elasticsearch:
   enabled: false
   match: "*"
   host:
-  awsRegion: "ap-northeast-1"
+  awsRegion: "us-east-1"
   awsAuth: "On"
   tls: "On"
   port: "443"
@@ -200,7 +200,7 @@ s3:
   enabled: false
   match: "*"
   bucket:
-  region: "ap-northeast-1"
+  region: "us-east-1"
   jsonDateKey: "date"
   jsonDateFormat: "iso8601"
   totalFileSize: "100M"
@@ -236,7 +236,7 @@ opensearch:
   path: ""
   bufferSize: "5m"
   pipeline:
-  awsRegion: "ap-northeast-1"
+  awsRegion: "us-east-1"
   awsAuth: "On"
   awsStsEndpoint:
   awsRoleArn:
@@ -359,7 +359,8 @@ livenessProbe:
   initialDelaySeconds: 30
   timeoutSeconds: 10
 
-readinessProbe: {}
+readinessProbe:
+  {}
   # httpGet:
   #   path: /api/v1/health
   #   port: 2020
@@ -369,11 +370,12 @@ readinessProbe: {}
   # timeoutSeconds: 10
 
 serviceMonitor:
-  service: 
+  service:
     type: ClusterIP
     port: 2020
     targetPort: 2020
-    extraPorts: []
+    extraPorts:
+      []
       # - port: 2021
       #   targetPort: 2021
       #   protocol: TCP
@@ -389,7 +391,8 @@ serviceMonitor:
   relabelings: []
   targetLabels: []
   metricRelabelings: []
-  extraEndpoints: []
+  extraEndpoints:
+    []
     # - port: metrics
     #   path: /metrics
     #   interval: 30s

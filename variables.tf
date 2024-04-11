@@ -8,7 +8,7 @@ variable "owner" {
 }
 
 variable "region" {
-  default     = "ap-northeast-1"
+  default     = "us-east-1"
   description = "aws region"
   type        = string
 }

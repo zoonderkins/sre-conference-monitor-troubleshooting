@@ -8,7 +8,7 @@ variable "owner" {
 }
 
 variable "region" {
-  default     = "ap-northeast-1"
+  default     = "us-east-1"
   description = "aws region"
   type        = string
 }
@@ -35,5 +35,5 @@ variable "cloudwatch_log_retention_days" {
 variable "elastic_cloud_endpoint" {
   description = "endpoint of elastic cloud"
   type        = string
-  default     = "8f703c473cd644199f4de9ae49e0e6e9.vpce.ap-northeast-1.aws.elastic-cloud.com"
+  default     = "8f703c473cd644199f4de9ae49e0e6e9.vpce.us-east-1.aws.elastic-cloud.com"
 }

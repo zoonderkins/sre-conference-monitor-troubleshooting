@@ -1,17 +1,22 @@
 # How to init the lab
+
 1. rewrite the variable tag: Owner
-2. Run script
+2. Check the variable `region` in `variables.tf` to match yours AWS Profile
+2. Run script (around 20 miniutes)
+
 ```
 aws configure --profile <profile>
 AWS_PROFILE=<profile> ./init.sh
 ```
 
 # End the lab
+
 ```
 AWS_PROFILE=<profile> ./destroy.sh
 ```
 
 # elasticSearch rebuild error
+
 ```
  Error: context deadline exceeded
 │ 
