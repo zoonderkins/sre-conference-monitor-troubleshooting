@@ -54,7 +54,7 @@ resource "helm_release" "aws_cloudwatch_logs_for_fluent_bit" {
 [FILTER]
     Name grep
     Match kube.*
-    Regex message 404
+    Regex log 404
 
 EOT
   }
