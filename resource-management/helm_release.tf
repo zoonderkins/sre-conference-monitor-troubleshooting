@@ -46,6 +46,42 @@ resource "helm_release" "aws_cloudwatch_logs_for_fluent_bit" {
     name  = "kinesis.enabled"
     value = "false"
   }
+
+  set {
+    name  = "additionalFilters"
+    value = <<-EOT
+
+[FILTER]
+    Name grep
+    Match kube.*
+    Regex log 404
+
+EOT
+  }
+
+ 
+  set {
+    name  = "additionalOutputs"
+    value = <<-EOT
+
+[OUTPUT]
+    Name            es
+    Match           kube.*
+    Host            elasticsearch-master.kube-system.svc.cluster.local
+    Port            9200
+    AWS_Auth        Off
+    TLS             On
+    tls.verify     On
+    Retry_Limit     6
+    HTTP_User       elastic
+    HTTP_Passwd     ul8x5B01s5kf3sk
+    Index           ${local.project_name}-application-logs-%Y.%W
+    Suppress_Type_Name On
+    tls.ca_file /fluentd/elastic/ca.crt
+    tls.crt_file /fluentd/elastic/tls.crt
+    tls.key_file /fluentd/elastic/tls.key 
+EOT
+  }
  
   depends_on = [
     helm_release.kibana
