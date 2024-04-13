@@ -32,4 +32,5 @@ terraform init
 terraform apply -auto-approve
 cd resource-management
 terraform init
+helm repo update
 terraform apply -auto-approve
